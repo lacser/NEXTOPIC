@@ -1,0 +1,11 @@
+.leftPannel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.appTitle {
+    color: #0d5765;
+    align-self: flex-start;
+}

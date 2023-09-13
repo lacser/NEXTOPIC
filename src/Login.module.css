@@ -1,0 +1,70 @@
+.loginWidget {
+    background-color: #FCFFF7;
+    border-radius: 10px;
+    height: 250px;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.loginLabel {
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: Tahoma, sans-serif;
+    color: #0d5765;
+    align-self: flex-start;
+}
+.loginLabel:hover {
+    color: #1F96AD;
+}
+
+.inputForm {
+    display: grid;
+    grid-template-areas: 
+    'userName userName'
+    'password password'
+    'signUp signIn';
+    grid-template-columns: 2fr 1fr;
+    margin-top: 10px;
+}
+.inputBox {
+    border: 1px solid #0d5765;
+    border-radius: 1.4rem;
+    height: 2.8rem;
+    width: 100%;
+    margin: 5px 0px;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+.inputBox:hover, .inputBox:focus {
+    outline: none;
+    border: 3px solid #1F96AD;
+}
+.userName{
+    grid-area: userName;
+}
+.password{
+    grid-area: password;
+}
+
+.submitButton{
+    justify-self: end;
+    margin-top: 5px;
+    border-radius: 1.25rem;
+    height: 2.5rem;
+    width: 5rem;
+}
+.signUpSubmitButton{
+    grid-area: signUp;
+    border: 1px solid #0d5765;
+    background-color: #F0F7E6;
+    color: #0d5765;
+}
+.signInSubmitButton{
+    grid-area: signIn;
+    border: none;
+    background-color: #1F96AD;
+    color: white;
+}
