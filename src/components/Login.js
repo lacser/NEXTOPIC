@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Login.module.css";
+import styles from "./stylesheets/Login.module.css";
 
 const LoginWidget = () => {
     return (

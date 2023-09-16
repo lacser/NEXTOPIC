@@ -1,12 +1,15 @@
-import LeftPannel from './LeftPannel';
-import RightPannel from './RightPannel';
+import LeftPanel from './LeftPanel';
+import RightPanel from './RightPanel';
 import styles from './Root.module.css';
+import { Outlet } from 'react-router-dom';
 
 function Root() {
     return (
       <div className={styles.Root}>
-        <LeftPannel />
-        <RightPannel />
+        <LeftPanel />
+        <RightPanel>
+          <Outlet/>
+        </RightPanel>
       </div>
     );
 }

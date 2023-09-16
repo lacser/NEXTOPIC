@@ -4,7 +4,7 @@
     background-color: #F0F7E6;
     display: grid;
     grid-template-areas: 
-    'leftPannel rightPannel';
+    'leftPanel rightPanel';
     grid-template-columns: 20rem 1fr;
     padding: 0.5rem;
     gap: 0.5rem;
