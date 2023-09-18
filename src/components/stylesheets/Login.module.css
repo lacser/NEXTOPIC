@@ -13,11 +13,11 @@
     font-size: 2rem;
     font-weight: 400;
     font-family: Tahoma, sans-serif;
-    color: #0d5765;
+    color: #0F4B4D;
     align-self: flex-start;
 }
 .loginLabel:hover {
-    color: #1F96AD;
+    color: #21ABB8;
 }
 
 .inputForm {
@@ -30,17 +30,17 @@
     margin-top: 10px;
 }
 .inputBox {
-    border: 1px solid #0d5765;
+    border: 1px solid #e5e8e8;
     border-radius: 1.4rem;
     height: 2.8rem;
     width: 100%;
     margin: 5px 0px;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 .inputBox:hover, .inputBox:focus {
     outline: none;
-    border: 3px solid #1F96AD;
+    border: 3px solid #29949E;
 }
 .userName{
     grid-area: userName;
@@ -58,13 +58,13 @@
 }
 .signUpSubmitButton{
     grid-area: signUp;
-    border: 1px solid #0d5765;
+    border: 1px solid #e5e8e8;
     background-color: #F0F7E6;
     color: #0d5765;
 }
 .signInSubmitButton{
     grid-area: signIn;
     border: none;
-    background-color: #1F96AD;
+    background-color: #29949E;
     color: white;
 }

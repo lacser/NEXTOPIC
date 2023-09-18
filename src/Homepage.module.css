@@ -1,0 +1,65 @@
+.homePage {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0px 15%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    column-gap: 20px;
+    grid-template-rows: 40% repeat(3, 5rem);
+}
+
+.chatInputAndTitle {
+    grid-column: 1 / -1;
+    align-self: flex-end;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.title {
+    grid-column: 1 / -1;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+    color: #0F4B4D;
+}
+
+.chatBoxBorder {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    width: 100%;
+    height: 3.5rem;
+    border-radius: 1.75rem;
+    border: 6px solid #e5e8e8;
+    background-color: white;
+}
+
+.chatBox {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    border: 2px solid #ccd1d1;
+    border-radius: 1.75rem;
+}
+.chatBox:hover, .chatBox:focus {
+    border: 3px solid #ccd1d1;
+}
+
+.userChatTextInput {
+    width: 80%;
+    height: 100%;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1rem;
+}
+
+.sendChat{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}

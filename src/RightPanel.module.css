@@ -2,3 +2,9 @@
     background-color: #FCFFF7;
     border-radius: 10px;
 }
+
+.content {
+    margin: 0px auto;
+    height: 100%;
+    max-width: 1000px;
+}

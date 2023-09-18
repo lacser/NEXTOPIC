@@ -3,9 +3,9 @@ import styles from './stylesheets/NewTopic.module.css'
 
 const StartNewTopicInPanel = () => {
     return(
-        <button className={styles.newTopicButtonInPanel}>
+        <label for='userChatTextInput' className={styles.newTopicButtonInPanel}>
             Start New Topic
-        </button>
+        </label>
     );
 }
 
