@@ -7,7 +7,7 @@ const LeftPanel = () => {
     return (
         <div className={styles.leftPanel}>
             <div className={styles.topContent}>
-                <h1 className={styles.appTitle}>TopicPot</h1>
+                <h1 className={styles.appTitle}>NEXTOPIC</h1>
                 <StartNewTopicInPanel className={styles.StartNewTopicInPanel} />
             </div>
             <LoginWidget className={styles.LoginWidget} />

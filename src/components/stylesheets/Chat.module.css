@@ -1,0 +1,12 @@
+.chat {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: [conversations] minmax(100px, 1fr) [inputbox] 5rem;
+    justify-items: center;
+}
+
+.input {
+    grid-area: inputbox;
+
+}
