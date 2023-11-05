@@ -4,14 +4,14 @@ import styles from './Root.module.css';
 import { Outlet } from 'react-router-dom';
 
 function Root() {
-    return (
-      <div className={styles.Root}>
-        <LeftPanel />
-        <RightPanel>
-          <Outlet/>
-        </RightPanel>
-      </div>
-    );
+  return (
+    <div className={styles.Root}>
+      <LeftPanel />
+      <RightPanel>
+        <Outlet />
+      </RightPanel>
+    </div>
+  );
 }
 
 export { Root };

@@ -9,7 +9,7 @@ const Homepage = () => {
                 <h1 className={styles.title}>
                     Let's mix inspiration
                 </h1>
-                <ChatInput behaviour='homepage'/>
+                <ChatInput behaviour='homepage' />
             </div>
         </div>
     );

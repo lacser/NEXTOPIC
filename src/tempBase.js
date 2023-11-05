@@ -45,7 +45,7 @@ export const newConversation = (question) =>{
 }
 
 export const findConversation = (index) =>{
-    if(conversations[index] === null) {
+    if(conversations[index] === undefined) {
         throw new Error('conversation not found');
     }
     return (conversations[index]);

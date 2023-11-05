@@ -80,15 +80,19 @@ export const Chat = () => {
         let tempElements = [];
         for (let i = 0; i < conversation.questionArray.length - 1; i++) {
             tempElements.push(
-                <>
+                <div 
+                    className={styles.oneRoundOfDialogue} 
+                    key={`${conversationIndex}dialogue${i}`}>
+
                     <h2 key={`${conversationIndex}prompt${i}`}>
                         {conversation.questionArray[i]}
                     </h2>
 
-                    <h2 key={`${conversationIndex}response${i}`}>
+                    <p key={`${conversationIndex}response${i}`}>
                         {conversation.responseArray[i]}
-                    </h2>
-                </>
+                    </p>
+
+                </div>
             );
         }
         setElements(tempElements);
@@ -103,8 +107,10 @@ export const Chat = () => {
             <div className={styles.conversation}>
 
                 {elements}
-                <h2>{conversation.currentQuestion}</h2>
-                <h2>{streamRespondMessage}</h2>
+                <div className={styles.oneRoundOfDialogue}>
+                    <h2>{conversation.currentQuestion}</h2>
+                    <p>{streamRespondMessage}</p>
+                </div>
 
             </div>
             <ChatInput
