@@ -1,7 +1,9 @@
-import getAuth from firebase/auth;
-import "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getFirestore } from "firebase/firestore";
 
-const app = firebase.initializeApp({
+const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
     projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
@@ -9,7 +11,10 @@ const app = firebase.initializeApp({
     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSIGING_SENDER_ID,
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
-})
+}
 
-export const auth = app.auth()
-export default app;
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+export const auth = getAuth(app);
+export const googleAuthProvider = new GoogleAuthProvider();
+export const db = getFirestore(app);

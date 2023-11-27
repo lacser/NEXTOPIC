@@ -10,7 +10,7 @@ const StartNewTopicInPanel = () => {
 
     return (
         <label 
-            for='ChatBoxInput'
+            htmlFor='ChatBoxInput'
             className={styles.newTopicButtonInPanel}
             onClick={handleClick} >
 

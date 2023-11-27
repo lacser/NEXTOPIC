@@ -20,6 +20,29 @@ const messageComposer = (message) => {
     );
 }
 
+const historyMessageComposer = (number, conversation) => {
+    const length = conversation.responseNumber;
+    const history = [];
+    if(length==0){
+        return [];
+    }
+    if(length < number) {
+        number = length;
+    }
+    for(let i=length-number; i<length; i++){
+        history.push({
+            role: 'user',
+            content: conversation.questionArray[i]
+        })
+        history.push({
+            role: 'assistant',
+            content: conversation.responseArray[i]
+        })
+    }
+    console.log(history);
+    return (history);
+}
+
 
 export const Chat = () => {
     const navigate = useNavigate();
@@ -46,10 +69,11 @@ export const Chat = () => {
         }
         const currentQuestion = conversation.currentQuestion;
         const message = messageComposer(currentQuestion);
+        const history = historyMessageComposer(2, conversation);
         const fetchStream = async () => {
             const stream = await openai.chat.completions.create({
                 model: "gpt-3.5-turbo",
-                messages: [message],
+                messages: [...history, message],
                 stream: true,
             });
             setStreamRespondMessage('');
@@ -68,8 +92,6 @@ export const Chat = () => {
         if (isStreamFinished) {
             conversation.newResponse = streamRespondMessage;
             setIsStreamFinished(false);
-            console.log(streamRespondMessage);
-            console.log(conversation);
         }
     }, [isStreamFinished]);
 
