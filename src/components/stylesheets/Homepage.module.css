@@ -5,7 +5,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     column-gap: 20px;
-    grid-template-rows: 40% repeat(3, 5rem);
+    align-content: center;
+    /*grid-template-rows: 40% repeat(3, 5rem);*/
 }
 
 .chatInputAndTitle {

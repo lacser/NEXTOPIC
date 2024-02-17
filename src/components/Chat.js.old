@@ -1,3 +1,4 @@
+/*
 import styles from "./stylesheets/Chat.module.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -5,6 +6,12 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 import { ChatInput } from "./ChatInput"
 import { findConversation, systemPrompt } from "../tempBase";
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+    dangerouslyAllowBrowser: true
+});
 
 const messageComposer = (message, role) => {
     return (
@@ -18,13 +25,13 @@ const messageComposer = (message, role) => {
 const historyMessageComposer = (number, conversation) => {
     const length = conversation.responseNumber;
     const history = [];
-    if (length == 0) {
+    if(length==0){
         return [];
     }
-    if (length < number) {
+    if(length < number) {
         number = length;
     }
-    for (let i = length - number; i < length; i++) {
+    for(let i=length-number; i<length; i++){
         history.push({
             role: 'user',
             content: conversation.questionArray[i]
@@ -61,52 +68,24 @@ export const Chat = () => {
         if (!conversation) {
             return; // loading
         }
-
-        setIsStreamFinished(false);
-        setStreamRespondMessage('');
         const currentQuestion = conversation.currentQuestion;
         const message = messageComposer(currentQuestion, 'user');
         const systemMessage = messageComposer(systemPrompt, 'system');
         const history = historyMessageComposer(2, conversation);
-
         const fetchStream = async () => {
-            const response = await fetch('http://localhost:3000/api/completion', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    model: "gpt-4",
-                    messages: [...history, systemMessage, message]
-                })
+            const stream = await openai.chat.completions.create({
+                model: "gpt-4",
+                messages: [...history, systemMessage, message],
+                stream: true,
             });
-
             console.log([systemMessage, ...history, message]);
-
-            const reader = response.body.getReader();
-            reader.read().then(function process({ done, value }) {
-                if (done) {
-                    console.log('All data has been read');
-                    setIsStreamFinished(true);
-                    return;
+            setStreamRespondMessage('');
+            for await (const part of stream) {
+                if (part.choices[0].delta.content) {
+                    setStreamRespondMessage(prevMessage => prevMessage + part.choices[0].delta.content);
                 }
-                const streamDecodeResult = new TextDecoder("utf-8").decode(value);
-                const jsonStrs = streamDecodeResult.split('\n').filter(Boolean);
-                jsonStrs.forEach(jsonStr => {
-                    if (jsonStr == 'data: [DONE]') {
-                        setIsStreamFinished(true);
-                        return;
-                    }
-                    try {
-                        const resultObj = JSON.parse(jsonStr.replace(/data: /g, ''));
-                        const content = resultObj.choices[0].delta.content;
-                        if (content) setStreamRespondMessage(prevMessage => prevMessage + content);
-                    } catch (error) {
-                        console.error(error);
-                    }
-                });
-                return reader.read().then(process);
-            });
+            }
+            setIsStreamFinished(true);
         }
         fetchStream();
     }, [conversation, newQuestion]);
@@ -114,6 +93,8 @@ export const Chat = () => {
     useEffect(() => {
         if (isStreamFinished) {
             conversation.newResponse = streamRespondMessage;
+            console.log(streamRespondMessage);
+            setIsStreamFinished(false);
         }
     }, [isStreamFinished]);
 
@@ -124,8 +105,8 @@ export const Chat = () => {
         let tempElements = [];
         for (let i = 0; i < conversation.questionArray.length - 1; i++) {
             tempElements.push(
-                <div
-                    className={styles.oneRoundOfDialogue}
+                <div 
+                    className={styles.oneRoundOfDialogue} 
                     key={`${conversationIndex}dialogue${i}`}>
 
                     <h2 key={`${conversationIndex}prompt${i}`}>
@@ -162,8 +143,8 @@ export const Chat = () => {
                 conversationSession={conversation}
                 className={styles.input}
                 setNewQuestion={setNewQuestion}
-                availability={isStreamFinished}
             />
         </div>
     );
 }
+*/
