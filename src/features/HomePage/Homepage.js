@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styles from './stylesheets/Homepage.module.css';
-import { ChatInput } from "./ChatInput";
+import styles from './Homepage.module.css';
+import { ChatInput } from "../../components/ChatInput";
 
 const Homepage = () => {
     return (

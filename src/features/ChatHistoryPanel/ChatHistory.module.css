@@ -1,0 +1,34 @@
+.chatHistoryContainer {
+    padding-top: 1.5rem;
+    width: 100%;
+}
+
+.chatHistoryBox { 
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+.chatHistoryBox:hover {
+    background-color: #ececec;
+}
+
+.chatHistoryElements {
+    list-style-type: none;
+    position: relative;
+    font-size: 0.875rem;
+    font-family: 'Noto Sans SC', 'Heiti SC', 'Microsoft YaHei', sans-serif;
+    font-weight: 450;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.overflowShadow {
+    position: absolute;
+    width: 2rem;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    background: linear-gradient(to right, rgba(249, 249, 249, 0), rgba(249, 249, 249, 1));
+}
+.chatHistoryBox:hover .overflowShadow {
+    background: linear-gradient(to right, rgba(236, 236, 236, 0), rgba(236, 236, 236, 1));
+}

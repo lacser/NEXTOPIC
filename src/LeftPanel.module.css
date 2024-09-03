@@ -2,19 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.875rem;
     justify-content: space-between;
+    background-color: #f9f9f9;
 }
 
 .topContent {
+    padding-right: 0.5rem;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-}
-
-.appTitle {
-    color: #0F4B4D;
-    font-family: 'Gabarito';
-    font-size: 30px;
-    margin-left: 5px;
-    align-self: flex-start;
 }

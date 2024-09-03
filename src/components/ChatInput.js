@@ -1,67 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './stylesheets/ChatInput.module.css';
-import { newConversation } from "../tempBase";
+import { useParams } from "react-router-dom";
+import { newConversation, addQuestion } from "../features/ChatHistoryPanel/chatHistorySlice";
+import store from "../store";
 
 export const ChatInput = (props) => {
+    const conversationIndex = useParams().chatIndex;
+    const behaviour = conversationIndex ? 'conversation' : 'homepage'; //判断输入框所在界面，以切换样式
+    const navigate = useNavigate(); //输入新问题后切换地址
+    const [chatText, setChatText] = useState(''); //记录输入框内容
 
-    const behaviour = props.behaviour;
-    const navigate = useNavigate();
-    const [chatText, setChatText] = useState('');
+    let sendChatButtonStyle = '';
+    let sendChatButtonStatus = false;
+    if (behaviour === 'homepage' && chatText) {
+        sendChatButtonStyle = styles.sendChatActive;
+        sendChatButtonStatus = true;
+    } else if (props.isStreamFinished && chatText) {
+        sendChatButtonStyle = styles.sendChatActive;
+        sendChatButtonStatus = true;
+    } else {
+        sendChatButtonStyle = styles.sendChatInactive;
+        sendChatButtonStatus = false;
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (behaviour === 'homepage') {
-            const conversationIndex = newConversation(chatText);
-            navigate(`/conversation/${conversationIndex}`);
+            store.dispatch(newConversation({question: chatText}));
+            const conversationIndex = store.getState().chatHistory.conversationNum - 1;
             setChatText('');
+            navigate(`/conversation/${conversationIndex}`);
         }
         else if (behaviour === 'conversation') {
-            props.conversationSession.newQuestion = chatText;
-            props.setNewQuestion(chatText);
+            store.dispatch(addQuestion({conversationIndex: conversationIndex, question: chatText}));
             setChatText('');
         }
     }
-
-    let submitButtionIcon = '';
-    if (behaviour === 'homepage') {
-        submitButtionIcon =
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40" height="40">
-                < g fill="#0d5765" >
-                    <path d="M464 256c0-114.87-93.13-208-208-208S48 141.13 48 256s93.13 208 208 208 208-93.13 208-208zm-212.65 91.36a16 16 0 01-.09-22.63L303.58 272H170a16 16 0 010-32h133.58l-52.32-52.73A16 16 0 11274 164.73l79.39 80a16 16 0 010 22.54l-79.39 80a16 16 0 01-22.65.09z" />
-                </g >
-            </svg >
-    } else if (props.availability) {
-        submitButtionIcon =
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="48" height="48">
-                <g fill="#0d5765">
-                    <path d="M464 256c0-114.87-93.13-208-208-208S48 141.13 48 256s93.13 208 208 208 208-93.13 208-208zm-212.65 91.36a16 16 0 01-.09-22.63L303.58 272H170a16 16 0 010-32h133.58l-52.32-52.73A16 16 0 11274 164.73l79.39 80a16 16 0 010 22.54l-79.39 80a16 16 0 01-22.65.09z" />
-                </g>
-            </svg>
-    } else {
-        submitButtionIcon =
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="48" height="48">
-                <g fill="#7f7f7f">
-                    <path d="M464 256c0-114.87-93.13-208-208-208S48 141.13 48 256s93.13 208 208 208 208-93.13 208-208zm-212.65 91.36a16 16 0 01-.09-22.63L303.58 272H170a16 16 0 010-32h133.58l-52.32-52.73A16 16 0 11274 164.73l79.39 80a16 16 0 010 22.54l-79.39 80a16 16 0 01-22.65.09z" />
-                </g>
-            </svg>
-    }
-
+    
     return (
         <div className={behaviour === 'homepage' ? styles.homepageChatBoxBorder : styles.conversationChatBoxBorder}>
-            <form className={styles.chatBox}>
+            <form className={styles.chatForm}>
                 <input
                     type="text"
                     name="ChatBoxInput"
                     id='ChatBoxInput'
-                    className={styles.chatBoxInput}
+                    className={styles.chatFormInput}
+                    placeholder="Message ChatGPT..."
                     onChange={({ target }) => setChatText(target.value)}
                     value={chatText} />
                 <button
-                    className={styles.sendChat}
-                    disabled={behaviour === 'homepage' ? false : !props.availability}
+                    className={sendChatButtonStyle}
+                    disabled={!sendChatButtonStatus}
                     onClick={handleSubmit} >
-                    {submitButtionIcon}
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                        <g fill="#fff">
+                            <path d="M434.5-633.848 247.826-447.174q-13.674 13.674-32.065 13.294-18.391-.381-32.065-14.055-12.674-13.674-13.055-32.065-.38-18.391 13.294-32.065l264-264q6.717-6.718 14.913-9.816 8.195-3.097 17.152-3.097t17.152 3.097q8.196 3.098 14.913 9.816l264.239 264.239q12.914 12.913 12.914 31.565t-12.914 32.326q-13.674 13.674-32.445 13.674-18.772 0-32.446-13.674L525.5-633.848v436.478q0 19.153-13.174 32.327T480-151.869q-19.152 0-32.326-13.174T434.5-197.37v-436.478Z" />
+                        </g>
+                    </svg>
                 </button>
             </form>
         </div>
