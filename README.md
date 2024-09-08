@@ -3,9 +3,10 @@
 NEXTOPIC is a web application that mimics the ChatGPT user interface, built with React and Redux. It's designed to work with a backend that can call the OpenAI API to generate responses.
 
 ## Screen Shots
-![image](https://github.com/user-attachments/assets/f2b2e4c6-c51b-4f5e-8dcc-daa0a3b3ad0b)
 
-![image](https://github.com/user-attachments/assets/249c91c9-0b15-4893-a24a-7601a413e99b)
+![image](https://github.com/user-attachments/assets/8a756312-580f-45df-b35d-a37c465fb6f4)
+
+![image](https://github.com/user-attachments/assets/9f11090a-69a8-4507-9d2c-d0272cec5386)
 
 ## Features
 
