@@ -1,6 +1,6 @@
 # NEXTOPIC
 
-NEXTOPIC is a web application that mimics the ChatGPT user interface, built with React and Redux. It's designed to work with a backend that can call the OpenAI API to generate responses.
+NEXTOPIC is a web application of chatbots built with React and Redux. It's designed to work with a backend that can call the OpenAI API to generate responses.
 
 ## Screen Shots
 
@@ -11,7 +11,7 @@ NEXTOPIC is a web application that mimics the ChatGPT user interface, built with
 
 ## Features
 
-- ChatGPT-like user interface
+- Simple user interface
 - Real-time stream response
 - Built with React for a responsive and interactive frontend
 - State management with Redux
