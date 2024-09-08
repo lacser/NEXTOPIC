@@ -6,7 +6,8 @@ NEXTOPIC is a web application that mimics the ChatGPT user interface, built with
 
 ![image](https://github.com/user-attachments/assets/8a756312-580f-45df-b35d-a37c465fb6f4)
 
-![image](https://github.com/user-attachments/assets/9f11090a-69a8-4507-9d2c-d0272cec5386)
+![image](https://github.com/user-attachments/assets/7e034b27-2253-43af-9e53-426906248f96)
+
 
 ## Features
 
