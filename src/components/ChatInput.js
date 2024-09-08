@@ -47,7 +47,7 @@ export const ChatInput = (props) => {
                     name="ChatBoxInput"
                     id='ChatBoxInput'
                     className={styles.chatFormInput}
-                    placeholder="Message ChatGPT..."
+                    placeholder="Message ChatBot..."
                     onChange={({ target }) => setChatText(target.value)}
                     value={chatText} />
                 <button

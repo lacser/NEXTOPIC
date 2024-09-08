@@ -42,7 +42,7 @@ const historyMessageComposer = (number, conversation) => { //生成聊天历史�
 
 const Chat = () => {
     const navigate = useNavigate();
-    const systemPrompt = 'You are ChatGPT, a large language model trained by OpenAI. \nYou always start your responses with friendly greetings. \nExpress your feeling (Ex. happy, curious, sympathy) about the question in your greetings. \nAlways use emojis in your greetings. \nAlways start a new line after your greetings.';
+    const systemPrompt = 'You are ChatGPT, a large language model trained by OpenAI. \nUse Markdown to format your text.';
     const conversationIndex = useParams().chatIndex;
     const [historyElements, setHistoryElements] = useState([]);
     const [streamElement, setStreamElement] = useState();
@@ -167,7 +167,7 @@ const Chat = () => {
                     <div className={styles.responseBox}>
                         <img src={defaultUserProfilePhoto} className={styles.userProfilePhoto} />
                         <div className={styles.responseChat}>
-                            <p className={styles.names}>ChatGPT</p>
+                            <p className={styles.names}>ChatBot</p>
                             <ReactMarkdown className={styles.response}>{streamAns}</ReactMarkdown>
                         </div>
                     </div>
@@ -203,7 +203,7 @@ const Chat = () => {
                     <div className={styles.responseBox}>
                         <img src={defaultUserProfilePhoto} className={styles.userProfilePhoto} />
                         <div className={styles.responseChat}>
-                            <p className={styles.names}>ChatGPT</p>
+                            <p className={styles.names}>ChatBot</p>
                             <ReactMarkdown className={styles.response} key={`${conversationIndex}response${i}`}>
                                 {conversation.responseArray[i]}
                             </ReactMarkdown>
@@ -225,7 +225,7 @@ const Chat = () => {
                 className={styles.input}
                 isStreamFinished={!fetchInProgress}
             />
-            <span className={styles.factWarn}>ChatGPT可能会出现错误，请考虑检查重要事实。</span>
+            <span className={styles.factWarn}>AI may make mistakes, please double-check for facts.</span>
         </div>
     );
 }
