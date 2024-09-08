@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styles from './Homepage.module.css';
+import React from "react";
+import styles from './Startpage.module.css';
 import { ChatInput } from "../../components/ChatInput";
 
-const Homepage = () => {
+const Startpage = () => {
     return (
         <div className={styles.homePage}>
             <div className={styles.chatInputAndTitle}>
@@ -15,4 +15,4 @@ const Homepage = () => {
     );
 }
 
-export { Homepage };
+export default Startpage ;

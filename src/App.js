@@ -1,13 +1,13 @@
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 import { Root } from './Root'
-import { Homepage } from './features/HomePage/Homepage';
-import { Chat } from './features/ChatPanel/Chat';
+import HomePage from './pages/HomePage';
+import ChatPage from './pages/ChatPage';
 import React from 'react';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Root />}>
-    <Route index element={<Homepage />} />
-    <Route path='conversation/:chatIndex' element={<Chat />} />
+    <Route path='/:mode' element={<HomePage />} />
+    <Route path='/:mode/conversation/:chatIndex' element={<ChatPage />} />
   </Route>
 ))
 

@@ -7,6 +7,7 @@ import store from "../store";
 
 export const ChatInput = (props) => {
     const conversationIndex = useParams().chatIndex;
+    const mode = useParams().mode;
     const behaviour = conversationIndex ? 'conversation' : 'homepage'; //判断输入框所在界面，以切换样式
     const navigate = useNavigate(); //输入新问题后切换地址
     const [chatText, setChatText] = useState(''); //记录输入框内容
@@ -27,10 +28,10 @@ export const ChatInput = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (behaviour === 'homepage') {
-            store.dispatch(newConversation({question: chatText}));
+            store.dispatch(newConversation({mode: mode, question: chatText}));
             const conversationIndex = store.getState().chatHistory.conversationNum - 1;
             setChatText('');
-            navigate(`/conversation/${conversationIndex}`);
+            navigate(`/${mode}/conversation/${conversationIndex}`);
         }
         else if (behaviour === 'conversation') {
             store.dispatch(addQuestion({conversationIndex: conversationIndex, question: chatText}));

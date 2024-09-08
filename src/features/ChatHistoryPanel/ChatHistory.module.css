@@ -7,7 +7,7 @@
     border-radius: 8px;
     padding: 0.5rem;
 }
-.chatHistoryBox:hover {
+.chatHistoryBox:hover,.chatHistoryBoxSelected {
     background-color: #ececec;
 }
 
@@ -29,6 +29,6 @@
     right: 0px;
     background: linear-gradient(to right, rgba(249, 249, 249, 0), rgba(249, 249, 249, 1));
 }
-.chatHistoryBox:hover .overflowShadow {
+.chatHistoryBox:hover .overflowShadow,.chatHistoryBoxSelected .overflowShadow {
     background: linear-gradient(to right, rgba(236, 236, 236, 0), rgba(236, 236, 236, 1));
 }

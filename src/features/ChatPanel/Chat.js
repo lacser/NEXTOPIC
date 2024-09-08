@@ -40,7 +40,7 @@ const historyMessageComposer = (number, conversation) => { //生成聊天历史�
     return (history);
 }
 
-export const Chat = () => {
+const Chat = () => {
     const navigate = useNavigate();
     const systemPrompt = 'You are ChatGPT, a large language model trained by OpenAI. \nYou always start your responses with friendly greetings. \nExpress your feeling (Ex. happy, curious, sympathy) about the question in your greetings. \nAlways use emojis in your greetings. \nAlways start a new line after your greetings.';
     const conversationIndex = useParams().chatIndex;
@@ -229,3 +229,5 @@ export const Chat = () => {
         </div>
     );
 }
+
+export default Chat;

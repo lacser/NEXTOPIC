@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const createConversation = (question) => ({
+const createConversation = (mode, question) => ({
     promptNumber: 1,
     responseNumber: 0,
+    initialMode: mode,
     questionArray: [question],
     responseArray: [],
 });
@@ -15,7 +16,7 @@ const chatHistorySlice = createSlice({
     },
     reducers: {
         newConversation: (state, action) => {
-            state.conversations.push(createConversation(action.payload.question));
+            state.conversations.push(createConversation(action.payload.mode, action.payload.question));
             state.conversationNum += 1;
         },
         addQuestion: (state, action) => {
@@ -28,6 +29,7 @@ const chatHistorySlice = createSlice({
             conversation.responseArray.push(action.payload.response);
             conversation.responseNumber += 1;
         }
+
     },
 });
 

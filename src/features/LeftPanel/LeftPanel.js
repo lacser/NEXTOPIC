@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./LeftPanel.module.css";
-import LoginWidget from "./components/Login.js";
-import { StartNewTopicInPanel } from "./components/NewTopic.js";
-import { ChatHistory } from "./features/ChatHistoryPanel/ChatHistory.js";
+import { StartNewTopicInPanel } from "../../components/NewTopic.js";
+import { ChatHistory } from "../ChatHistoryPanel/ChatHistory.js";
 
 const LeftPanel = () => {
     return (

@@ -1,0 +1,8 @@
+.chatToolBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    grid-area: chatToolBar;
+    padding: 0px 25px;
+}

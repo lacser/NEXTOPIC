@@ -44,9 +44,16 @@
     margin-right: auto;
 }
 
+.write {
+    fill: #797979;
+}
+.write:hover {
+    fill: #000;
+}
 .hiddenWrite {
     visibility: hidden;
 }
+
 .newChatButton:hover .hiddenWrite {
     visibility: visible;
 }

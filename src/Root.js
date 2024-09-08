@@ -1,20 +1,25 @@
-import React from 'react';
-import LeftPanel from './LeftPanel';
-import RightPanel from './RightPanel';
+import React, { useEffect } from 'react';
 import styles from './Root.module.css';
 import { Outlet } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const systemPrompt = 'You are ChatGPT, a large language model trained by OpenAI. \nYou always start your responses with friendly greetings. \nExpress your feeling (Ex. happy, curious, sympathy) about the question in your greetings. \nAlways use emojis in your greetings. \nAlways start a new line after your greetings.';
+
 
 function Root() {
-  return (
-    <div className={styles.Root}>
-        <LeftPanel />
-        <RightPanel>
-          <Outlet />
-        </RightPanel>
-    </div>
-  );
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (location.pathname === '/') {
+            navigate('/creative');
+        }
+    }, []);
+
+    return (
+        <div className={styles.Root}>
+            <Outlet />
+        </div>
+    );
 }
 
 export { Root };

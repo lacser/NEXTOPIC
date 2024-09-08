@@ -1,9 +1,11 @@
 .chat {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
+    grid-area: chatWindow;
 }
 
 .conversation {
@@ -49,6 +51,7 @@
 .response {
     width: 100%;
     font-size: 1rem;
+    overflow: auto;
 }
 
 .userProfilePhoto {
