@@ -1,0 +1,24 @@
+.homePage {
+    height: 100%;
+    padding: 0px 13%;
+    display: flex;
+
+}
+
+.chatInputAndTitle {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #000;
+    margin: auto 0px;
+}

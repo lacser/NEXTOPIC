@@ -1,0 +1,117 @@
+.loginWidgetNotSignedIn, .loginWidgetSignedIn {
+    background-color: #FCFFF7;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.activeloginLabel {
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: Tahoma, sans-serif;
+    color: #0F4B4D;
+    align-self: flex-start;
+}
+.activeloginLabel:hover {
+    color: #21ABB8;
+}
+.inactiveloginLabel {
+    display: none;
+}
+
+.activeloginInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 10px;
+}
+.inactiveloginInfo {
+    display: none;
+}
+.profilePhoto {
+    margin-top: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.showName {
+    font-size: 2rem;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    color:#0F4B4D;
+}
+
+.inputFormNotSignedIn {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 10px;
+}
+.inputFormSignedIn {
+    display: none;
+}
+.inputBox {
+    border: 1px solid #e5e8e8;
+    border-radius: 1.4rem;
+    height: 2.8rem;
+    width: 100%;
+    margin: 5px 0px;
+    padding: 1rem;
+    font-size: 1rem;
+}
+.inputBox:hover, .inputBox:focus {
+    outline: none;
+    border: 3px solid #29949E;
+}
+
+
+.signInWithEmailSubmitButtons{
+    width: 100%;
+}
+.submitButton{
+    margin-top: 5px;
+    border-radius: 1.25rem;
+    height: 2.5rem;
+    width: calc(calc(100% - 10px) / 2);
+}
+.signUpSubmitButton{
+    border: 1px solid #e5e8e8;
+    background-color: #F0F7E6;
+    color: #0d5765;
+}
+.signInSubmitButton{
+    border: none;
+    background-color: #29949E;
+    color: white;
+    margin-left: 10px;
+}
+.activeSignInWithGoogleButton {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 1.25rem;
+    height: 2.5rem;
+    width: 100%;
+    border: 1px solid #e5e8e8;
+    background-color: #F0F7E6;
+    color: #0d5765;
+}
+.inactiveSignInWithGoogleButton {
+    display: none;
+}
+
+.activeSignOutButton{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 1.25rem;
+    height: 2.5rem;
+    width: 100%;
+    border: 1px solid #e5e8e8;
+    background-color: #F0F7E6;
+    color: #0d5765;
+}
+.inactiveSignOutButton{
+    display: none;
+}

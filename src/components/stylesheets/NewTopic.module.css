@@ -1,0 +1,68 @@
+.newTopicSection {
+    padding-top: 0.875rem;
+    width: 100%;
+}
+
+.newChatButton {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 8px;
+    border: none;
+    background-color: transparent;
+}
+
+.newChatButton:hover {
+    background-color: #ececec;
+}
+
+.buttonFrame {
+    display: flex;
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    height: 100%;
+    align-items: center;
+}
+
+.botIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.botName {
+    margin-left: 0.5rem;
+    font-family: 'Noto Sans SC', 'Heiti SC', 'Microsoft YaHei', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: start;
+    margin-right: auto;
+}
+
+.write {
+    fill: #797979;
+}
+.write:hover {
+    fill: #000;
+}
+.hiddenWrite {
+    visibility: hidden;
+}
+
+.newChatButton:hover .hiddenWrite {
+    visibility: visible;
+}
+
+.creativeIcon {
+    margin-left: 2px;
+    margin-top: 1px;
+}
+.preciseIcon {
+    margin-left: 1px;
+    margin-top: 1px;
+}

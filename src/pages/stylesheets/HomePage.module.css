@@ -1,0 +1,9 @@
+.homepage {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    grid-template-areas: 
+        "chatHistory chatWindow";
+}

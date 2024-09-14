@@ -1,0 +1,51 @@
+.chatModeSwitchButton {
+    height: 2.25rem;
+    padding: 0px 0.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    
+}
+
+.chatModeSwitchButton:hover {
+    background-color: #f5f5f5;
+}
+
+.buttonText {
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', 'Helvetica', 'Arial', 'Noto Sans SC', 'Heiti SC', 'Microsoft YaHei', sans-serif;
+    color: #7d7d7d;
+    line-height: 2rem;
+}
+
+.dropDownIcon {
+    transform: translateY(2px);
+}
+
+
+.chatModePopup {
+    position: absolute;
+    top: 50px;
+    left: calc(16rem + 25px);
+    width: 15rem;
+    background-color: #fff;
+    border: #e7e6e6 solid 1px;
+    border-radius: 20px;
+    box-shadow: -2px 2px 12px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+}
+
+.popupItem {
+    height: 2.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0px 12px;
+}
+.popupItem:hover {
+    background-color: #f5f5f5;
+}
